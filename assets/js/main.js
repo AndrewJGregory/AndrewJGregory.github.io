@@ -1,89 +1,163 @@
-/*
-	Telephasic by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+"use strict";
 
-(function($) {
 
-	skel.breakpoints({
-		normal: '(max-width: 1280px)',
-		narrow: '(max-width: 1080px)',
-		narrower: '(max-width: 820px)',
-		mobile: '(max-width: 736px)',
-		mobilep: '(max-width: 480px)'
-	});
+jQuery(document).ready(function ($) {
 
-	$(function() {
+    jQuery(window).load(function () {
+        jQuery(".loaded").fadeOut();
+        jQuery(".preloader").delay(1000).fadeOut("slow");
+    });
+    /*---------------------------------------------*
+     * Mobile menu
+     ---------------------------------------------*/
+    $(document).on('click', '.navbar-collapse.in', function (e) {
+        if ($(e.target).is('a')) {
+            $(this).collapse('hide');
+        }
+    });
 
-		var	$window = $(window),
-			$body = $('body');
+    $('ul.navbar-nav li').hover(function () {
+        $(this).children('ul').stop(true, false, true).fadeToggle(300);
+    });
+    /*---------------------------------------------*
+     * STICKY scroll
+     ---------------------------------------------*/
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+    $("").localScroll();
 
-			$window.on('load', function() {
-				$body.removeClass('is-loading');
-			});
+    /*---------------------------------------------*
+     * WOW
+     ---------------------------------------------*/
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+    var wow = new WOW({
+        mobile: false // trigger animations on mobile devices (default is true)
+    });
+    wow.init();
 
-		// Prioritize "important" elements on narrower.
-			skel.on('+narrower -narrower', function() {
-				$.prioritize(
-					'.important\\28 narrower\\29',
-					skel.breakpoint('narrower').active
-				);
-			});
 
-		// CSS polyfills (IE<9).
-			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
+    /*---------------------------------------------*
+     * Counter 
+     ---------------------------------------------*/
 
-		// Dropdowns.
-			$('#nav > ul').dropotron({
-				mode: 'fade',
-				speed: 300,
-				alignment: 'center',
-				noOpenerFade: true
-			});
+    $('.statistic-counter').counterUp({
+        delay: 10,
+        time: 2000
+    });
 
-		// Off-Canvas Navigation.
 
-			// Navigation Button.
-				$(
-					'<div id="navButton">' +
-						'<a href="#navPanel" class="toggle"></a>' +
-					'</div>'
-				)
-					.appendTo($body);
 
-			// Navigation Panel.
-				$(
-					'<div id="navPanel">' +
-						'<nav>' +
-							'<a href="index.html" class="link depth-0">Home</a>' +
-							$('#nav').navList() +
-						'</nav>' +
-					'</div>'
-				)
-					.appendTo($body)
-					.panel({
-						delay: 500,
-						hideOnClick: true,
-						resetScroll: true,
-						resetForms: true,
-						side: 'top',
-						target: $body,
-						visibleClass: 'navPanel-visible'
-					});
+    /* ---------------------------------------------------------------------
+     Carousel
+     ---------------------------------------------------------------------= */
 
-			// Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
-				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#navButton, #navPanel, #page-wrapper')
-						.css('transition', 'none');
+    $('.main_home_slider').owlCarousel({
+        responsiveClass: true,
+        autoplay: false,
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: false,
+        navText: [
+            "<i class='lnr lnr-chevron-left'></i>",
+            "<i class='lnr lnr-chevron-right'></i>"
+        ],
+        autoplayHoverPause: true
 
-	});
+    });
 
-})(jQuery);
+    $('.main_team').owlCarousel({
+        responsiveClass: true,
+        autoplay: false,
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: true,
+        navText: [
+            "<i class='lnr lnr-chevron-left'></i>",
+            "<i class='lnr lnr-chevron-right'></i>"
+        ],
+        autoplayHoverPause: true
+
+    });
+
+    $('.main_work1_content').owlCarousel({
+        responsiveClass: true,
+        autoplay: false,
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: true,
+        navText: [
+            "prew",
+            "next"
+        ],
+        autoplayHoverPause: true
+
+    });
+    $('.main_work1_team').owlCarousel({
+        responsiveClass: true,
+        autoplay: false,
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: false,
+        navText: [
+            "prew",
+            "next"
+        ],
+        autoplayHoverPause: true
+
+    });
+
+
+// main-menu-scroll
+
+    jQuery(window).scroll(function () {
+        var top = jQuery(document).scrollTop();
+        var height = 5;
+        //alert(batas);
+
+        if (top > height) {
+            jQuery('.navbar-fixed-top').addClass('menu-scroll');
+        } else {
+            jQuery('.navbar-fixed-top').removeClass('menu-scroll');
+        }
+    });
+
+// scroll Up
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            $('.scrollup').fadeIn('slow');
+        } else {
+            $('.scrollup').fadeOut('slow');
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({scrollTop: 0}, 1000);
+        return false;
+    });
+
+
+
+//    $('#menu').slicknav();
+
+//    $('#mixcontent').mixItUp({
+//        animation: {
+//            animateResizeContainer: false,
+//            effects: 'fade rotateX(-45deg) translateY(-10%)'
+//        }
+//    });
+
+
+
+    //End
+});
+
+
+
+
+
+
+
