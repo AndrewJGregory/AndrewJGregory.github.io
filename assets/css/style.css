@@ -584,16 +584,16 @@ input::-ms-input-placeholder {
     top:50%;
     z-index: 99;
 }
-.home .owl-theme .owl-dots .owl-dot {
+.home .owl-theme . . {
     display: block;
     zoom: 1;
 }
 
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme . ..active span, .owl-theme . .:hover span {
     background: #fff;
     border:0;
 }
-.owl-theme .owl-dots .owl-dot span {
+.owl-theme . . span {
     width: 10px;
     height: 10px;
     margin: 2px 10px;
@@ -957,10 +957,10 @@ service section css
     top: -880px;
 }
 
-.main_work1_area .owl-theme .owl-dots .owl-dot span{
+.main_work1_area .owl-theme . . span{
     border-radius:50%;
 }
-.main_work1_area .owl-theme .owl-dots .owl-dot.active span{
+.main_work1_area .owl-theme . ..active span{
     background: #000;
     border: 0;
 }
@@ -993,14 +993,14 @@ service section css
 
 /*main work1 team section */
 .main_work1_team_area{}
-.main_work1_team_area .owl-theme .owl-dots .owl-dot span{
+.main_work1_team_area .owl-theme . . span{
     border-radius:50%;
 }
-.main_work1_team_area .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+.main_work1_team_area .owl-theme . ..active span, .owl-theme . .:hover span{
     background: #000;
 }
 
-.main_work1_team_area .owl-theme .owl-dots {
+.main_work1_team_area .owl-theme . {
     text-align: center;
     -webkit-tap-highlight-color: transparent;
     top: 40px;
