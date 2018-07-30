@@ -1071,4 +1071,9 @@ ul li.filter{
 #me {
   width: 50%;
   margin: 0 auto;
+  border-radius: 100px;
+}
+
+#personal-description {
+	color: 'green';
 }
